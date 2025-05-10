@@ -5,7 +5,7 @@
   "main": "scripts/app.js",
   "scripts": {
     "start": "node scripts/tools/simple-server.js",
-    "build": "echo 'No build step required for static site'"
+    "build": "node scripts/build-deploy.js"
   },
   "keywords": [
     "timetracking",

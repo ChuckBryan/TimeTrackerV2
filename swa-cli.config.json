@@ -3,7 +3,7 @@
   "configurations": {
     "time-tracker-vnext": {
       "appLocation": ".",
-      "outputLocation": ".",
+      "outputLocation": "dist",
       "appName": "time-tracker-vnext",
       "resourceGroup": "time-tracker-vnext-rg"
     }
