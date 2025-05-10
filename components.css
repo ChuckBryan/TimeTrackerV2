@@ -1,0 +1,307 @@
+/**
+ * Components CSS
+ * This file contains reusable UI components that are shared across the application
+ */
+
+/* ===== Buttons ===== */
+.button {
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-family: "Work Sans", sans-serif;
+  font-size: var(--font-size-base);
+  font-weight: 300;
+  line-height: normal;
+  padding: 0 30px;
+  height: 45px;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease;
+}
+
+.button-primary {
+  background-color: var(--light-ocean-blue);
+  color: var(--white);
+  border: 1px solid var(--light-ocean-blue);
+}
+
+.button-primary:hover {
+  background-color: var(--dark-ocean-blue);
+}
+
+.button-secondary {
+  background-color: var(--light-gray);
+  color: var(--dark-gray);
+}
+
+.button-secondary:hover {
+  background-color: var(--dark-gray);
+  color: var(--white);
+}
+
+.button-outline {
+  border: 1px solid var(--light-ocean-blue);
+  background-color: transparent;
+  color: var(--light-ocean-blue);
+}
+
+.button-outline:hover {
+  background-color: var(--light-ocean-blue);
+  color: var(--white);
+}
+
+/* ===== Form Elements ===== */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 700;
+  font-size: var(--font-size-base);
+  color: var(--black);
+}
+
+.form-control {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border: 1px solid var(--light-gray);
+  border-radius: 4px;
+  font-family: "Work Sans", sans-serif;
+  font-size: var(--font-size-base);
+  transition: border-color 0.2s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--royal-blue);
+}
+
+input[type="text"].form-control,
+input[type="number"].form-control,
+input[type="email"].form-control,
+input[type="password"].form-control,
+input[type="date"].form-control,
+input[type="time"].form-control {
+  height: 40px;
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-note {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: var(--font-size-sm);
+  color: var(--dark-gray);
+  margin-top: var(--spacing-xs);
+}
+
+/* Date picker container */
+.date-picker-container {
+  position: relative;
+  width: 100%;
+}
+
+.date-picker-container i {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* ===== Card Components ===== */
+.card {
+  background-color: var(--white);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card-header {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.card-title {
+  font-family: "Work Sans", sans-serif;
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--black);
+  margin: 0;
+}
+
+.card-body {
+  padding: var(--spacing-md);
+}
+
+.card-footer {
+  padding: var(--spacing-md);
+  border-top: 1px solid var(--light-gray);
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-md);
+}
+
+/* ===== Tables ===== */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  text-align: left;
+  padding: var(--spacing-sm);
+  font-family: "Work Sans", sans-serif;
+  font-weight: 700;
+  color: var(--black);
+  border-bottom: 2px solid var(--light-gray);
+}
+
+.table td {
+  padding: var(--spacing-sm);
+  font-family: "Libre Franklin", sans-serif;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.table tbody tr:nth-child(odd) {
+  background-color: var(--white);
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: var(--ultra-light-blue);
+}
+
+.table tbody tr:hover {
+  background-color: var(--sky-blue);
+}
+
+/* ===== Section Headers ===== */
+.section-header {
+  margin-bottom: var(--spacing-lg);
+}
+
+.section-title {
+  font-family: "Work Sans", sans-serif;
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: var(--spacing-xs);
+}
+
+.section-subtitle {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: var(--font-size-md);
+  color: var(--dark-gray);
+}
+
+/* ===== Containers and Layouts ===== */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-md);
+  padding-right: var(--spacing-md);
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.gap-xs {
+  gap: var(--spacing-xs);
+}
+.gap-sm {
+  gap: var(--spacing-sm);
+}
+.gap-md {
+  gap: var(--spacing-md);
+}
+.gap-lg {
+  gap: var(--spacing-lg);
+}
+.gap-xl {
+  gap: var(--spacing-xl);
+}
+
+/* ===== Utilities ===== */
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.text-left {
+  text-align: left;
+}
+
+.mb-xs {
+  margin-bottom: var(--spacing-xs);
+}
+.mb-sm {
+  margin-bottom: var(--spacing-sm);
+}
+.mb-md {
+  margin-bottom: var(--spacing-md);
+}
+.mb-lg {
+  margin-bottom: var(--spacing-lg);
+}
+.mb-xl {
+  margin-bottom: var(--spacing-xl);
+}
+
+.mt-xs {
+  margin-top: var(--spacing-xs);
+}
+.mt-sm {
+  margin-top: var(--spacing-sm);
+}
+.mt-md {
+  margin-top: var(--spacing-md);
+}
+.mt-lg {
+  margin-top: var(--spacing-lg);
+}
+.mt-xl {
+  margin-top: var(--spacing-xl);
+}
+
+.hidden {
+  display: none;
+}
+
+/* ===== Responsive adjustments ===== */
+@media screen and (max-width: 768px) {
+  .button {
+    height: 40px;
+    padding: 0 16px;
+    font-size: 14px;
+  }
+
+  .flex-row-mobile {
+    flex-direction: column;
+  }
+}

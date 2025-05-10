@@ -1,0 +1,720 @@
+/* Projects Page Styles */
+/* Main content area specific to projects page */
+.content-area {
+  flex: 1;
+  padding: 2rem;
+  background-color: var(--white);
+  overflow-y: auto;
+  margin-left: 1rem;
+}
+
+.content-header {
+  margin-bottom: 2rem;
+  position: relative; /* Add positioning context for header elements */
+  z-index: 5; /* Ensure header stays above other elements */
+}
+
+.content-header h1 {
+  color: var(--royal-blue); /* Royal Blue */
+  font-family: "Work Sans", sans-serif;
+  font-size: 40px; /* --font-size-xxl */
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  margin-bottom: 16px; /* --spacing-md */
+  margin-top: 0;
+  clear: both; /* Ensure heading starts on a new line */
+  display: block; /* Make heading a block element */
+  text-align: left; /* Explicitly set left alignment */
+}
+
+.page-description {
+  color: var(--dark-gray); /* Dark gray */
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 18px;
+  margin-bottom: 24px;
+  max-width: 800px;
+  line-height: 1.5;
+}
+
+.sorting-search-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.sort-section {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.search-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.dropdown-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.search-bar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+label {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--black);
+}
+
+.dropdown {
+  position: relative;
+  width: 300px;
+}
+
+.dropdown-select {
+  width: 100%;
+  padding: 4px 8px;
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px;
+  border: 1px solid var(--light-gray);
+  background-color: var(--white);
+  appearance: none;
+  padding-right: 30px;
+  height: 40px;
+}
+
+.dropdown-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--royal-blue);
+  pointer-events: none;
+}
+
+.per-page-label {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 14px;
+  color: var(--black);
+}
+
+.search-bar {
+  position: relative;
+  width: 300px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 10px 40px 10px 10px;
+  border: 1px solid var(--light-gray);
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px;
+}
+
+.search-bar input::placeholder {
+  color: #757575;
+}
+
+.search-button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--royal-blue);
+  cursor: pointer;
+  padding: 0;
+  font-size: 18px;
+}
+
+/* Projects Table Styling */
+.projects-table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 2rem;
+}
+
+.projects-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.projects-table th {
+  background-color: var(--dark-ocean-blue);
+  color: var(--white);
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: left;
+  padding: 16px 12px;
+  white-space: nowrap; /* Prevent wrapping of header text */
+}
+
+/* Center alignment for specific headers */
+.projects-table th.hours-column,
+.projects-table th.actions-column,
+.projects-table th.end-column {
+  text-align: center;
+}
+
+/* Handling for all headers with icons */
+.projects-table th .header-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Left-aligned headers with icons */
+.projects-table th.project-id-column .header-content,
+.projects-table th.project-name-column .header-content,
+.projects-table th.client-column .header-content {
+  justify-content: flex-start;
+}
+
+/* Center-aligned headers with icons */
+.projects-table th.end-column .header-content {
+  justify-content: center;
+}
+
+.projects-table th i {
+  margin-left: 4px;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+/* Header content styles moved below */
+
+.projects-table td {
+  padding: 16px 12px;
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 16px;
+  border-top: 1px solid var(--light-gray);
+  color: var(--black);
+  vertical-align: middle;
+}
+
+.projects-table .alt-row {
+  background-color: var(--ultra-light-blue);
+}
+
+.bullet-column {
+  width: 40px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.bullet {
+  color: var(--royal-blue);
+  font-size: 80px;
+  line-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.project-id-column {
+  width: 150px;
+}
+
+.project-name-column {
+  width: auto;
+}
+
+.project-link {
+  color: var(--royal-blue);
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .project-link {
+    display: block;
+  }
+}
+
+.client-column {
+  width: 300px;
+}
+
+.hours-column {
+  width: 200px;
+  text-align: center; /* Center-align Remaining Hours column */
+}
+
+.end-column {
+  width: 200px;
+  text-align: right; /* Right-align End Date column */
+}
+
+.actions-column {
+  width: 201px;
+  text-align: center;
+}
+
+.action-link {
+  color: var(--royal-blue);
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.separator {
+  color: var(--royal-blue);
+}
+
+/* Pagination Styling */
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.per-page-selector {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.page-size-dropdown {
+  position: relative;
+  width: auto;
+}
+
+.page-size-dropdown .dropdown-select {
+  width: 80px;
+  text-align: center;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pagination-button {
+  min-width: 45px;
+  height: 45px;
+  padding: 10px;
+  border: 1px solid var(--light-ocean-blue);
+  background-color: var(--white);
+  color: var(--light-ocean-blue);
+  font-family: "Work Sans", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination-button:first-child,
+.pagination-button:last-child {
+  min-width: auto;
+  width: auto;
+  padding: 10px 30px;
+}
+
+.pagination-button.active {
+  background-color: var(--light-ocean-blue);
+  color: var(--white);
+}
+
+.pagination-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.pagination-ellipsis {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pagination-ellipsis span {
+  font-family: "Work Sans", sans-serif;
+  color: var(--light-ocean-blue);
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .sorting-search-bar {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .search-section {
+    width: 100%;
+  }
+
+  .dropdown,
+  .search-bar {
+    width: 100%;
+  }
+
+  .content-header h1 {
+    font-size: 36px; /* Slightly reduce font size */
+  }
+}
+
+@media (max-width: 992px) {
+  .content-area {
+    margin-left: 0; /* Remove margin when sidebar is hidden */
+    padding: 2rem 1.5rem; /* Keep top padding consistent but reduce side padding */
+  }
+
+  .content-header h1 {
+    font-size: 32px;
+    padding-left: 0; /* Remove left padding */
+    position: relative; /* Add positioning context */
+    margin-top: 45px; /* Add sufficient top margin to appear below the button */
+    clear: both; /* Ensure heading appears below the button */
+  }
+
+  .page-description {
+    padding-left: 65px; /* Align with heading */
+  }
+
+  /* Reduce column widths for better tablet display */
+  .project-id-column {
+    width: 120px;
+  }
+
+  .client-column {
+    width: 250px;
+  }
+
+  .hours-column,
+  .end-column {
+    width: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-section {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .per-page-selector {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pagination-container {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .content-area {
+    padding: 1.5rem 1rem; /* Slightly adjust padding */
+  }
+
+  .content-header h1 {
+    font-size: 28px;
+    margin-bottom: 12px;
+    margin-top: 50px; /* Increase top margin to ensure it's below the button */
+  }
+
+  .page-description {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  /* Make action links a bit more touch-friendly */
+  .action-link {
+    padding: 5px;
+    margin: 0 2px;
+  }
+
+  .pagination-button {
+    min-width: 40px;
+    height: 40px;
+  }
+
+  .projects-table th {
+    font-size: 14px;
+    padding: 12px 8px;
+  }
+
+  .projects-table td {
+    font-size: 14px;
+    padding: 12px 8px;
+  }
+}
+
+/* Special handling for small screens */
+@media (max-width: 576px) {
+  .content-header h1 {
+    font-size: 24px;
+    padding-left: 0.5rem; /* Add a small left padding for alignment */
+    margin-top: 55px; /* Increase top margin for better spacing below the button */
+    text-align: left; /* Ensure left alignment */
+  }
+
+  .page-description {
+    font-size: 15px;
+    margin-bottom: 16px;
+    padding-left: 65px; /* Align with heading */
+    max-width: 100%;
+  }
+
+  /* Table adjustments for very small screens */
+  .projects-table {
+    font-size: 13px;
+  }
+
+  .projects-table th {
+    padding: 10px 6px;
+    font-size: 13px;
+  }
+
+  .projects-table td {
+    padding: 10px 6px;
+    font-size: 13px;
+  }
+
+  /* Keep the most important columns and hide less important ones */
+  .hours-column,
+  .end-column {
+    display: none;
+  }
+
+  /* Prioritize important columns by adjusting widths */
+  .project-id-column {
+    width: 90px;
+  }
+
+  .project-name-column {
+    width: 100px;
+  }
+
+  .client-column {
+    width: auto;
+  }
+
+  .bullet-column {
+    width: 30px;
+  }
+
+  .bullet {
+    font-size: 60px;
+  }
+
+  .pagination-button {
+    min-width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+
+  .pagination-button:first-child,
+  .pagination-button:last-child {
+    padding: 8px 15px;
+  }
+}
+
+/* Extra small screen handling - card view */
+@media (max-width: 480px) {
+  /* Fix header positioning relative to menu button */
+  .content-header h1 {
+    padding-top: 0;
+    margin-top: 60px; /* Ensure sufficient space below the menu button */
+    text-align: left; /* Left-align the heading to match Current Timesheet */
+    padding-left: 0.5rem; /* Add a small left padding */
+  }
+
+  .projects-table-container {
+    overflow-x: visible;
+  }
+
+  .projects-table {
+    border: none;
+  }
+
+  .projects-table thead {
+    display: none; /* Hide table header */
+  }
+
+  .projects-table tbody,
+  .projects-table tr,
+  .projects-table td {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+
+  .projects-table tr {
+    margin-bottom: 1rem;
+    border: 1px solid var(--light-gray);
+    background-color: var(--white);
+    position: relative;
+    padding-left: 10px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+
+  .projects-table tr.alt-row {
+    background-color: var(--ultra-light-blue);
+  }
+
+  /* Rearrange bullet to left border */
+  .projects-table .bullet-column {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 10px;
+    height: 100%;
+    padding: 0;
+    background-color: var(--royal-blue);
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+
+  .projects-table .bullet {
+    display: none;
+  }
+  /* Hide border for all cells */
+  .projects-table td {
+    border: none;
+    position: relative;
+    min-height: 35px;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Ensure the Project ID and Name are showing on mobile */
+  @media (max-width: 480px) {
+    .projects-table td.project-id-column,
+    .projects-table td.project-name-column {
+      display: block;
+    }
+  }
+
+  .projects-table td:last-child {
+    border-bottom: none;
+  }
+  /* Only show Project ID and Name in collapsed state */
+  .projects-table td.project-id-column {
+    font-weight: 700;
+    padding: 15px 0 5px 15px;
+    display: block;
+  }
+
+  .projects-table td.project-name-column {
+    font-weight: 500;
+    padding: 5px 0 15px 15px;
+    display: block;
+  }
+
+  /* Initially hide these elements in the card */
+  .projects-table td.client-column,
+  .projects-table td.hours-column,
+  .projects-table td.end-column,
+  .projects-table td.actions-column {
+    display: none;
+  }
+  /* Styling for expanded state */
+  .projects-table tr.expanded td.client-column,
+  .projects-table tr.expanded td.hours-column,
+  .projects-table tr.expanded td.end-column,
+  .projects-table tr.expanded td.actions-column {
+    display: flex;
+    padding: 10px 0 10px 15px;
+  }
+  
+  /* Maintain block display for Project ID and Name even when expanded */
+  .projects-table tr.expanded td.project-id-column,
+  .projects-table tr.expanded td.project-name-column {
+    display: block;
+  }
+
+  /* Add labels for expanded cells */
+  .projects-table tr.expanded td.client-column::before {
+    content: "Client:";
+    font-weight: 700;
+    margin-right: 10px;
+    min-width: 100px;
+  }
+
+  .projects-table tr.expanded td.hours-column::before {
+    content: "Remaining Hours:";
+    font-weight: 700;
+    margin-right: 10px;
+    min-width: 100px;
+  }
+
+  .projects-table tr.expanded td.end-column::before {
+    content: "End Date:";
+    font-weight: 700;
+    margin-right: 10px;
+    min-width: 100px;
+  }
+
+  /* Add expand/collapse indicator */
+  .projects-table tr::after {
+    content: "\f078"; /* fa-chevron-down */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: var(--royal-blue);
+    transition: transform 0.3s ease;
+  }
+
+  .projects-table tr.expanded::after {
+    transform: rotate(180deg);
+  }
+
+  /* Make actions prominent and easy to tap */
+  .projects-table tr.expanded .actions-column {
+    text-align: center;
+    padding: 15px 10px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #eee;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    margin: 10px -10px 0;
+    width: calc(100% + 10px);
+    justify-content: center;
+  }
+
+  .action-link {
+    padding: 8px 12px;
+    margin: 0 8px;
+    display: inline-block;
+    background-color: #f7f7f7;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+
+  .action-link:hover {
+    background-color: #e9e9e9;
+  }
+
+  /* Better spacing for separators */
+  .separator {
+    margin: 0 5px;
+  }
+}

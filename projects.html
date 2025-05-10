@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TimeTracker - Projects</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <!-- Add correct Google Fonts import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;700&family=Work+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" data-cachebust />
+    <link rel="stylesheet" href="components.css" data-cachebust />
+    <link rel="stylesheet" href="Nav.css" data-cachebust />
+    <link rel="stylesheet" href="Content.css" data-cachebust />
+    <link rel="stylesheet" href="TimeEntry.css" data-cachebust />
+    <link rel="stylesheet" href="Projects.css" data-cachebust />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <!-- Cache busting is now handled by app.js -->
+  </head>
+  <body>
+    <!-- Skip to main content link for keyboard users -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Mobile menu toggle button -->
+    <button
+      class="mobile-menu-toggle"
+      id="mobile-menu-toggle"
+      aria-label="Toggle navigation menu"
+    >
+      <i class="fas fa-bars" aria-hidden="true"></i>
+    </button>
+
+    <div class="main-container">
+      <!-- Sidebar Navigation -->
+      <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+        <div class="logo-container">
+          <img
+            src="img/TimeTrackerLogo.svg"
+            alt="Time Tracker Logo"
+            class="logo"
+          />
+        </div>
+        <nav class="nav-menu" aria-label="Main navigation">
+          <a href="index.html" class="nav-item" tabindex="0">
+            <i class="nav-icon far fa-clock" aria-hidden="true"></i>
+            <span>Current Timesheet</span>
+          </a>
+          <a href="previous-timesheet.html" class="nav-item" tabindex="0">
+            <i class="nav-icon fas fa-clock-rotate-left" aria-hidden="true"></i>
+            <span>Previous Timesheet</span>
+          </a>
+          <a
+            href="projects.html"
+            class="nav-item active"
+            aria-current="page"
+            tabindex="0"
+          >
+            <i class="nav-icon fa-regular fa-folder" aria-hidden="true"></i>
+            <span>Projects</span>
+          </a>
+          <a href="pto.html" class="nav-item" tabindex="0">
+            <i class="nav-icon fas fa-umbrella-beach" aria-hidden="true"></i>
+            <span>PTO</span>
+          </a>
+        </nav>
+        <div class="user-section">
+          <div class="user-info" aria-label="User information">
+            <p>Signed in as <strong>Rachael Smith</strong></p>
+          </div>
+          <a
+            href="#"
+            class="sign-out"
+            tabindex="0"
+            aria-label="Sign out of your account"
+            >Sign Out</a
+          >
+        </div>
+        <div class="copyright" aria-label="Copyright information">
+          Copyright 2025, Marathon Consulting, LLC
+        </div>
+      </aside>
+
+      <!-- Main Content Area -->
+      <main id="main-content" class="content-area">
+        <header class="content-header">
+          <h1>Projects</h1>
+        </header>
+        <!-- Sorting and Search Bar -->
+        <div class="sorting-search-bar">
+          <div class="sort-section">
+            <div class="dropdown-container">
+              <label for="sortBy">Sort By</label>
+              <div class="dropdown">
+                <select id="sortBy" class="dropdown-select">
+                  <option>Last Used</option>
+                  <option>Project Name</option>
+                  <option>Client</option>
+                  <option>End Date</option>
+                </select>
+                <i class="fas fa-chevron-down dropdown-icon"></i>
+              </div>
+            </div>
+          </div>
+          <div class="search-section">
+            <div class="dropdown-container">
+              <label for="searchBy">Search By</label>
+              <div class="dropdown">
+                <select id="searchBy" class="dropdown-select">
+                  <option>Select One</option>
+                  <option>Project ID</option>
+                  <option>Project Name</option>
+                  <option>Client</option>
+                </select>
+                <i class="fas fa-chevron-down dropdown-icon"></i>
+              </div>
+            </div>
+            <div class="search-bar-container">
+              <label for="searchInput">Search</label>
+              <div class="search-bar">
+                <input
+                  id="searchInput"
+                  type="text"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <button class="search-button" aria-label="Submit search">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Projects Table -->
+        <div class="projects-table-container">
+          <table class="projects-table">
+            <thead>
+              <tr>
+                <th class="bullet-column"></th>
+                <th class="project-id-column">
+                  <span class="header-content">
+                    Project ID
+                    <i class="fas fa-chevron-down"></i>
+                  </span>
+                </th>
+                <th class="project-name-column">
+                  <span class="header-content">
+                    Project Name
+                    <i class="fas fa-chevron-down"></i>
+                  </span>
+                </th>
+                <th class="client-column">
+                  <span class="header-content">
+                    Client
+                    <i class="fas fa-chevron-down"></i>
+                  </span>
+                </th>
+                <th class="hours-column">Remaining Hours</th>
+                <th class="end-column">
+                  <span class="header-content">
+                    End
+                    <i class="fas fa-chevron-down"></i>
+                  </span>
+                </th>
+                <th class="actions-column">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Row 1 -->
+              <tr>
+                <td class="bullet-column"><span class="bullet">•</span></td>
+                <td class="project-id-column">123456</td>
+                <td class="project-name-column project-link">Project Name</td>
+                <td class="client-column">Client Name</td>
+                <td class="hours-column">112.75</td>
+                <td class="end-column">11/29/2024</td>
+                <td class="actions-column">
+                  <a href="#" class="action-link">Add</a>
+                  <span class="separator">|</span>
+                  <a href="#" class="action-link">Ext</a>
+                  <span class="separator">|</span>
+                  <a href="#" class="action-link">
+                    <i class="fas fa-chevron-down"></i>
+                  </a>
+                </td>
+              </tr>
+              <!-- Row 2 -->
+              <tr class="alt-row">
+                <td class="bullet-column"><span class="bullet">•</span></td>
+                <td class="project-id-column">123456</td>
+                <td class="project-name-column project-link">Project Name</td>
+                <td class="client-column">Client Name</td>
+                <td class="hours-column">112.75</td>
+                <td class="end-column">11/29/2024</td>
+                <td class="actions-column">
+                  <a href="#" class="action-link">Add</a>
+                  <span class="separator">|</span>
+                  <a href="#" class="action-link">Ext</a>
+                  <span class="separator">|</span>
+                  <a href="#" class="action-link">
+                    <i class="fas fa-chevron-down"></i>
+                  </a>
+                </td>
+              </tr>
+              <!-- Row 3 -->
+              <tr>
+                <td class="bullet-column"><span class="bullet">•</span></td>
+                <td class="project-id-column">123456</td>
+                <td class="project-name-column project-link">Project Name</td>
+                <td class="client-column">Client Name</td>
+                <td class="hours-column">112.75</td>
+                <td class="end-column">11/29/2024</td>
+                <td class="actions-column">
+                  <a href="#" class="action-link">Add</a>
+                  <span class="separator">|</span>
+                  <a href="#" class="action-link">Ext</a>
+                  <span class="separator">|</span>
+                  <a href="#" class="action-link">
+                    <i class="fas fa-chevron-down"></i>
+                  </a>
+                </td>
+              </tr>
+              <!-- Row 4 -->
+              <tr class="alt-row">
+                <td class="bullet-column"><span class="bullet">•</span></td>
+                <td class="project-id-column">123456</td>
+                <td class="project-name-column project-link">Project Name</td>
+                <td class="client-column">Client Name</td>
+                <td class="hours-column">112.75</td>
+                <td class="end-column">11/29/2024</td>
+                <td class="actions-column">
+                  <a href="#" class="action-link">Add</a>
+                  <span class="separator">|</span>
+                  <a href="#" class="action-link">Ext</a>
+                  <span class="separator">|</span>
+                  <a href="#" class="action-link">
+                    <i class="fas fa-chevron-down"></i>
+                  </a>
+                </td>
+              </tr>
+              <!-- Row 5 -->
+              <tr>
+                <td class="bullet-column"><span class="bullet">•</span></td>
+                <td class="project-id-column">123456</td>
+                <td class="project-name-column project-link">Project Name</td>
+                <td class="client-column">Client Name</td>
+                <td class="hours-column">112.75</td>
+                <td class="end-column">11/29/2024</td>
+                <td class="actions-column">
+                  <a href="#" class="action-link">Add</a>
+                  <span class="separator">|</span>
+                  <a href="#" class="action-link">Ext</a>
+                  <span class="separator">|</span>
+                  <a href="#" class="action-link">
+                    <i class="fas fa-chevron-down"></i>
+                  </a>
+                </td>
+              </tr>
+              <!-- Row 6 -->
+              <tr class="alt-row">
+                <td class="bullet-column"><span class="bullet">•</span></td>
+                <td class="project-id-column">123456</td>
+                <td class="project-name-column project-link">Project Name</td>
+                <td class="client-column">Client Name</td>
+                <td class="hours-column">112.75</td>
+                <td class="end-column">11/29/2024</td>
+                <td class="actions-column">
+                  <a href="#" class="action-link">Add</a>
+                  <span class="separator">|</span>
+                  <a href="#" class="action-link">Ext</a>
+                  <span class="separator">|</span>
+                  <a href="#" class="action-link">
+                    <i class="fas fa-chevron-down"></i>
+                  </a>
+                </td>
+              </tr>
+              <!-- Row 7 -->
+              <tr>
+                <td class="bullet-column"><span class="bullet">•</span></td>
+                <td class="project-id-column">123456</td>
+                <td class="project-name-column project-link">Project Name</td>
+                <td class="client-column">Client Name</td>
+                <td class="hours-column">112.75</td>
+                <td class="end-column">11/29/2024</td>
+                <td class="actions-column">
+                  <a href="#" class="action-link">Add</a>
+                  <span class="separator">|</span>
+                  <a href="#" class="action-link">Ext</a>
+                  <span class="separator">|</span>
+                  <a href="#" class="action-link">
+                    <i class="fas fa-chevron-down"></i>
+                  </a>
+                </td>
+              </tr>
+              <!-- Row 8 -->
+              <tr class="alt-row">
+                <td class="bullet-column"><span class="bullet">•</span></td>
+                <td class="project-id-column">123456</td>
+                <td class="project-name-column project-link">Project Name</td>
+                <td class="client-column">Client Name</td>
+                <td class="hours-column">112.75</td>
+                <td class="end-column">11/29/2024</td>
+                <td class="actions-column">
+                  <a href="#" class="action-link">Add</a>
+                  <span class="separator">|</span>
+                  <a href="#" class="action-link">Ext</a>
+                  <span class="separator">|</span>
+                  <a href="#" class="action-link">
+                    <i class="fas fa-chevron-down"></i>
+                  </a>
+                </td>
+              </tr>
+              <!-- Row 9 -->
+              <tr>
+                <td class="bullet-column"><span class="bullet">•</span></td>
+                <td class="project-id-column">123456</td>
+                <td class="project-name-column project-link">Project Name</td>
+                <td class="client-column">Client Name</td>
+                <td class="hours-column">112.75</td>
+                <td class="end-column">11/29/2024</td>
+                <td class="actions-column">
+                  <a href="#" class="action-link">Add</a>
+                  <span class="separator">|</span>
+                  <a href="#" class="action-link">Ext</a>
+                  <span class="separator">|</span>
+                  <a href="#" class="action-link">
+                    <i class="fas fa-chevron-down"></i>
+                  </a>
+                </td>
+              </tr>
+              <!-- Row 10 -->
+              <tr class="alt-row">
+                <td class="bullet-column"><span class="bullet">•</span></td>
+                <td class="project-id-column">123456</td>
+                <td class="project-name-column project-link">Project Name</td>
+                <td class="client-column">Client Name</td>
+                <td class="hours-column">112.75</td>
+                <td class="end-column">11/29/2024</td>
+                <td class="actions-column">
+                  <a href="#" class="action-link">Add</a>
+                  <span class="separator">|</span>
+                  <a href="#" class="action-link">Ext</a>
+                  <span class="separator">|</span>
+                  <a href="#" class="action-link">
+                    <i class="fas fa-chevron-down"></i>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination-container">
+          <div class="per-page-selector">
+            <div class="page-size-dropdown">
+              <select id="pageSize" class="dropdown-select">
+                <option>10</option>
+                <option>25</option>
+                <option>50</option>
+                <option>100</option>
+              </select>
+              <i class="fas fa-chevron-down dropdown-icon"></i>
+            </div>
+            <span class="per-page-label">Per Page</span>
+          </div>
+          <div class="pagination">
+            <button class="pagination-button" disabled>Previous</button>
+            <button class="pagination-button active">1</button>
+            <button class="pagination-button">2</button>
+            <button class="pagination-button">3</button>
+            <div class="pagination-ellipsis">
+              <span>•••</span>
+            </div>
+            <button class="pagination-button">22</button>
+            <button class="pagination-button">Next</button>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="scripts/app.js" data-cachebust></script>
+  </body>
+</html>

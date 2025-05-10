@@ -1,0 +1,585 @@
+/* Main Content Area Styles */
+.content {
+  flex: 1;
+  padding: var(
+    --spacing-xl
+  ); /* Adjusted from xxl to xl to match Figma spacing */
+  background-color: var(--white);
+  overflow-y: auto;
+}
+
+.content h1 {
+  color: var(--royal-blue);
+  font-family: "Work Sans", sans-serif;
+  font-size: var(--font-size-xxl);
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  margin-bottom: var(--spacing-md);
+  margin-top: 0; /* Ensure no top margin to match Figma */
+}
+
+/* Timesheet Header */
+.timesheet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(
+    --spacing-lg
+  ); /* Adjusted from xl to lg to match Figma spacing */
+}
+
+.week-display {
+  color: var(--black);
+  font-family: "Work Sans", sans-serif;
+  font-size: var(--font-size-xl);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.173; /* Match Figma's line height */
+  margin: 0; /* Remove any default margins */
+}
+
+.action-buttons {
+  display: flex;
+  gap: var(--spacing-xl);
+  align-items: center;
+  margin: 0; /* Remove any default margins */
+}
+
+/* Search Component */
+.search-container {
+  display: flex;
+  border: 1px solid var(--light-gray);
+  height: 45px;
+}
+
+.search-input {
+  width: 350px;
+  height: 45px;
+  padding: 0 var(--spacing-sm);
+  border: none;
+  outline: none;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 400;
+  font-size: var(--font-size-base);
+}
+
+.search-button {
+  background-color: var(--royal-blue);
+  border: none;
+  color: var(--white);
+  padding: 0 var(--spacing-md);
+  cursor: pointer;
+  height: 45px;
+}
+
+/* Action Buttons */
+.add-project-btn,
+.submit-timesheet-btn {
+  height: 45px;
+  border: none;
+  padding: 0 30px;
+  cursor: pointer;
+  border-radius: 2px;
+  text-align: center;
+  font-family: "Work Sans", sans-serif;
+  font-size: var(--font-size-base);
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.add-project-btn {
+  background-color: var(--light-ocean-blue);
+  color: var(--white);
+}
+
+.submit-timesheet-btn {
+  background-color: var(--light-gray);
+  color: var(--dark-gray);
+}
+
+/* Column Toggle Controls */
+.column-toggle {
+  display: none;
+  margin-bottom: var(--spacing-md);
+  margin-top: var(--spacing-sm); /* Add top margin for better spacing */
+}
+
+.column-toggle-button {
+  background-color: transparent;
+  color: var(--royal-blue);
+  border: 1px solid var(--royal-blue);
+  border-radius: 4px;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  margin-right: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.column-toggle-button.active {
+  background-color: var(--royal-blue);
+  color: white;
+}
+
+.column-toggle-button:hover {
+  background-color: var(--ultra-light-blue);
+}
+
+.column-toggle-button.active:hover {
+  background-color: var(--light-ocean-blue);
+}
+
+/* Timesheet Table */
+.timesheet-grid {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: var(
+    --spacing-xl
+  ); /* Add bottom margin to match Figma spacing */
+}
+
+.timesheet-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--white);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-family: "Libre Franklin", sans-serif;
+  table-layout: fixed;
+  border-spacing: 0; /* Ensure no spacing between cells */
+  vertical-align: middle; /* Align content vertically */
+  border-bottom: 1px solid var(--light-gray); /* Add bottom border to match Figma */
+}
+
+/* Add class for columns that can be toggled */
+.toggle-column {
+  transition: opacity 0.3s ease, width 0.3s ease;
+}
+
+.timesheet-table thead {
+  background-color: var(--dark-ocean-blue);
+  color: var(--white);
+  height: 58px; /* Match the exact height from Figma */
+}
+
+.timesheet-table th {
+  padding: 0;
+  border: none;
+  background-color: var(--dark-ocean-blue);
+  color: var(--white);
+  font-weight: 700;
+  font-size: var(--font-size-base);
+  height: 58px; /* Fixed height to match Figma */
+  vertical-align: middle; /* Ensure vertical centering */
+}
+
+.th-content {
+  display: flex;
+  padding: 16px 12px; /* Exact padding from Figma */
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  height: 100%; /* Ensure full height for vertical alignment */
+}
+
+.timesheet-table th.day-column .th-content {
+  justify-content: center;
+  width: 100%;
+}
+
+.timesheet-table th.total-column .th-content,
+.timesheet-table th.status-column .th-content {
+  justify-content: center;
+  width: 100%;
+}
+
+.timesheet-table th.project-number .th-content,
+.timesheet-table th.project-name .th-content {
+  justify-content: flex-start;
+  width: 100%;
+}
+
+/* Header column widths as per Figma */
+.timesheet-table th.project-number {
+  width: 118px;
+  white-space: nowrap; /* Prevent "Project ID" from wrapping */
+}
+
+/* Project ID header specific styling */
+.timesheet-table th.project-number .th-content {
+  white-space: nowrap; /* Ensure the text doesn't wrap */
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.timesheet-table th.project-name {
+  width: auto; /* Takes remaining space */
+}
+
+.timesheet-table th.day-column {
+  width: 80px;
+  text-align: center;
+  font-size: var(--font-size-sm);
+}
+
+.timesheet-table th.day-column .th-content {
+  flex-direction: column;
+  line-height: 1.143; /* Match the exact line height from Figma */
+  justify-content: center;
+  padding: 8px 4px; /* Adjusted padding for the date display */
+}
+
+.timesheet-table th.total-column {
+  width: 80px;
+}
+
+.timesheet-table th.status-column {
+  width: 80px;
+}
+
+.sort-icon {
+  font-size: 12px;
+  margin-left: var(--spacing-xs);
+}
+
+/* Table Body */
+.timesheet-table td {
+  border-top: 1px solid var(--light-gray);
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  padding: 16px 12px; /* Exact padding from Figma (16px vertical, 12px horizontal) */
+  text-align: center; /* Center content by default */
+  height: 58px; /* Fixed height to match Figma's row height spec */
+}
+
+/* Set proper text styles without breaking layout */
+.timesheet-table td {
+  color: var(--black);
+  font-family: "Libre Franklin", sans-serif;
+  font-size: var(--font-size-base);
+  font-weight: 400;
+  line-height: 18px;
+  vertical-align: middle; /* Ensure vertical centering of content */
+}
+
+/* Column width overrides for TD cells */
+.timesheet-table .project-id-column {
+  width: 118px;
+  text-align: left;
+}
+
+.timesheet-table .project-name-column {
+  text-align: left;
+}
+
+.timesheet-table td:nth-child(3),
+.timesheet-table td:nth-child(4),
+.timesheet-table td:nth-child(5),
+.timesheet-table td:nth-child(6),
+.timesheet-table td:nth-child(7),
+.timesheet-table td:nth-child(8),
+.timesheet-table td:nth-child(9) {
+  width: 80px;
+  text-align: center;
+}
+
+.timesheet-table td:nth-child(10) {
+  width: 80px;
+  text-align: center;
+  background-color: var(--sky-blue);
+}
+
+.timesheet-table td:nth-child(11) {
+  width: 80px;
+  text-align: center;
+}
+
+/* Alternating row styles */
+.timesheet-table tbody tr:nth-child(odd) {
+  background-color: var(--white);
+}
+
+.timesheet-table tbody tr:nth-child(even) {
+  background-color: var(--ultra-light-blue);
+}
+
+/* Links and buttons */
+.view-btn {
+  color: var(--royal-blue);
+  text-decoration: none;
+  display: inline-block; /* Ensure proper spacing */
+  line-height: 1.125; /* Match Figma's line height */
+  font-family: "Libre Franklin", sans-serif;
+  font-size: var(--font-size-base);
+  font-weight: 400;
+}
+
+.project-link {
+  color: var(--royal-blue);
+  text-decoration: none;
+  font-family: "Libre Franklin", sans-serif;
+  font-size: var(--font-size-base);
+  font-weight: 400;
+  line-height: 1.125; /* Match Figma's line height */
+}
+
+.project-link:hover {
+  text-decoration: underline;
+}
+
+/* Totals Row */
+.totals-row {
+  background-color: var(--sky-blue) !important;
+}
+
+.totals-row td {
+  font-weight: normal; /* Default to normal weight for the row */
+  height: 58px; /* Match the exact height from Figma */
+  padding: 16px 12px; /* Exact padding from Figma */
+}
+
+.totals-row .project-id-column {
+  font-weight: 700; /* Only the TOTALS label is bold */
+}
+
+.totals-row td:nth-child(10) {
+  font-weight: 700; /* The final total amount is bold */
+}
+
+.timesheet-message {
+  margin-top: 10px;
+  font-size: var(--font-size-sm);
+  text-align: right;
+  color: var(--light-ocean-blue);
+  font-family: "Libre Franklin", sans-serif;
+}
+
+/* Responsive Content Area */
+@media screen and (max-width: 1200px) {
+  .content {
+    padding: var(--spacing-xl); /* Already matches Figma */
+  }
+
+  .search-input {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .content {
+    padding-top: calc(
+      var(--spacing-xxl) + 48px
+    ); /* Add space for the mobile menu button */
+  }
+
+  .timesheet-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+  }
+
+  .action-buttons {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .search-container {
+    flex-grow: 1;
+    max-width: 300px;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  /* Show column toggle controls */
+  .column-toggle {
+    display: block;
+    text-align: right;
+  }
+
+  /* Default state for toggleable columns on tablet */
+  .timesheet-table .project-id-column,
+  .timesheet-table .status-column {
+    display: table-cell;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    padding: var(--spacing-lg);
+    padding-top: calc(var(--spacing-lg) + 48px);
+  }
+
+  .content h1 {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .action-buttons {
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+  }
+
+  .search-container {
+    order: -1;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .add-project-btn,
+  .submit-timesheet-btn {
+    flex: 1;
+    min-width: 120px;
+    height: 40px;
+    padding: 0 var(--spacing-md);
+  }
+
+  .search-input {
+    height: 40px;
+  }
+
+  .search-button {
+    height: 40px;
+  }
+
+  /* Timesheet table adjustments */
+  .timesheet-table {
+    font-size: var(--font-size-sm);
+  }
+
+  .timesheet-table th.day-column {
+    width: 60px;
+  }
+
+  .timesheet-table td {
+    padding: var(--spacing-sm) var(--spacing-xs);
+    font-size: var(--font-size-sm);
+  }
+  /* Hide toggleable columns and day columns on mobile by default */
+  .timesheet-table .status-column.hidden-mobile,
+  .timesheet-table th.day-column,
+  .timesheet-table td:nth-child(3),
+  .timesheet-table td:nth-child(4),
+  .timesheet-table td:nth-child(5),
+  .timesheet-table td:nth-child(6),
+  .timesheet-table td:nth-child(7),
+  .timesheet-table td:nth-child(8),
+  .timesheet-table td:nth-child(9) {
+    display: none;
+  }
+
+  /* Adjust column widths when others are hidden */
+  .timesheet-table .project-name-column {
+    width: auto;
+  }
+
+  /* Ensure the Total column remains visible */
+  .timesheet-table th.total-column,
+  .timesheet-table td:nth-child(10) {
+    display: table-cell;
+    width: 80px;
+  }
+
+  /* Move toggle controls to be more prominent */
+  .column-toggle {
+    margin-bottom: var(--spacing-md);
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+  }
+
+  /* Add toggle button for day columns */
+  .day-columns-toggle {
+    display: block;
+    margin-top: var(--spacing-sm);
+    color: var(--light-ocean-blue);
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  /* Style for mobile view with hidden day columns */
+  .timesheet-table th.project-number,
+  .timesheet-table .project-id-column,
+  .timesheet-table .project-name-column,
+  .timesheet-table th.total-column,
+  .timesheet-table td:nth-child(10) {
+    padding: 16px 12px;
+    height: 58px;
+    display: table-cell; /* Ensure these columns are always visible */
+  }
+
+  /* Make the total column more prominent on mobile */
+  .timesheet-table td:nth-child(10) {
+    font-weight: 700;
+    font-size: var(--font-size-base);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .timesheet-header {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .week-display {
+    font-size: var(--font-size-lg);
+  }
+
+  /* Vertical timesheet table for very small screens */
+  .timesheet-table {
+    table-layout: auto;
+    min-width: 100%;
+  }
+
+  .timesheet-table th.day-column {
+    width: 50px;
+    padding: 0;
+  }
+
+  .timesheet-table th.project-number {
+    width: 70px;
+  }
+
+  .th-content {
+    padding: var(--spacing-sm) var(--spacing-xs);
+  }
+
+  .timesheet-message {
+    text-align: left;
+  }
+
+  /* Make toggle controls full width */
+  .column-toggle {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .column-toggle-button {
+    padding: var(--spacing-xs) var(--spacing-xs);
+    flex-grow: 1;
+    text-align: center;
+    max-width: 150px;
+  }
+}
+
+/* Card-based layout for smallest screens */
+@media screen and (max-width: 480px) {
+  .timesheet-grid {
+    overflow-x: visible;
+  }
+
+  /* Optional: Consider a card layout for extremely small screens */
+  .card-view-toggle {
+    display: block;
+    margin-bottom: var(--spacing-md);
+    color: var(--royal-blue);
+    font-weight: 500;
+    cursor: pointer;
+  }
+}

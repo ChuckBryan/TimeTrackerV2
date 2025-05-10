@@ -1,0 +1,222 @@
+/* Variables */
+:root {
+  --royal-blue: #0059a6;
+  --light-ocean-blue: #1f5e8d;
+  --dark-ocean-blue: #123148;
+  --sky-blue: #acd4dd;
+  --ultra-light-blue: #f2f7fa;
+  --black: #231f20;
+  --dark-gray: #4f4f4f;
+  --light-gray: #c2c2c2;
+  --white: #ffffff;
+  --background-color: #f4f4f4;
+
+  /* Font sizes */
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-md: 18px;
+  --font-size-lg: 22px;
+  --font-size-xl: 30px;
+  --font-size-xxl: 40px;
+
+  /* Spacing */
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 40px;
+
+  /* Breakpoints */
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+
+  /* Layout */
+  --sidebar-width: 375px;
+  --sidebar-width-collapsed: 80px;
+}
+
+/* Font imports */
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;700&family=Work+Sans:wght@300;400;500;600;700&display=swap");
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Libre Franklin", sans-serif;
+  margin: 0;
+  line-height: 1.4;
+  color: var(--black);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Accessibility - Skip Link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--royal-blue);
+  color: var(--white);
+  padding: var(--spacing-sm);
+  z-index: 100;
+  transition: top 0.2s;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid var(--sky-blue);
+  outline-offset: 2px;
+}
+
+/* Screen reader only class */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Work Sans", sans-serif;
+  margin-top: 0;
+}
+
+/* Main Container Layout */
+.main-container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: row;
+  align-items: stretch;
+  height: 100%;
+}
+
+/* Mobile menu toggle */
+.mobile-menu-toggle {
+  display: none;
+  position: fixed;
+  top: var(--spacing-md);
+  left: var(--spacing-md);
+  z-index: 1000;
+  background-color: var(--royal-blue);
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  padding: var(--spacing-xs);
+  font-size: 24px;
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Links */
+a {
+  color: var(--royal-blue);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Focus styles for keyboard navigation */
+a:focus,
+button:focus,
+input:focus {
+  outline: 2px solid var(--royal-blue);
+  outline-offset: 2px;
+}
+
+/* Buttons */
+button {
+  cursor: pointer;
+  font-family: "Work Sans", sans-serif;
+}
+
+/* Common button styles - Moved to components.css */
+
+/* Responsive Breakpoints */
+@media screen and (max-width: 1200px) {
+  :root {
+    --font-size-xxl: 36px;
+    --font-size-xl: 28px;
+    --spacing-xxl: 32px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .main-container {
+    position: relative;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  :root {
+    --font-size-xxl: 32px;
+    --font-size-xl: 26px;
+    --spacing-xxl: 24px;
+  }
+
+  /* Adjust sidebar when the mobile menu toggle is visible */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+    z-index: 100;
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --font-size-xxl: 28px;
+    --font-size-xl: 24px;
+    --font-size-lg: 20px;
+    --spacing-xl: 24px;
+    --spacing-xxl: 20px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  :root {
+    --font-size-xxl: 24px;
+    --font-size-xl: 22px;
+    --font-size-lg: 18px;
+    --font-size-md: 16px;
+    --spacing-lg: 16px;
+    --spacing-xl: 20px;
+    --spacing-xxl: 16px;
+  }
+}

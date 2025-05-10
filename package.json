@@ -1,0 +1,21 @@
+{
+  "name": "timetracker",
+  "version": "1.0.0",
+  "description": "TimeTracker application for tracking work hours and projects",
+  "main": "scripts/app.js",
+  "scripts": {
+    "start": "node scripts/tools/simple-server.js",
+    "build": "echo 'No build step required for static site'"
+  },
+  "keywords": [
+    "timetracking",
+    "projects",
+    "productivity"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@azure/static-web-apps-cli": "2.0.6",
+    "http": "0.0.1-security"
+  }
+}

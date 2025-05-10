@@ -1,0 +1,17 @@
+
+Welcome to Azure Static Web Apps CLI (2.0.6)
+
+Using configuration "timetracker" from file:
+  C:\projects\CoPilotVision\swa-cli.config.json
+
+Deploying front-end files from folder:
+  C:\projects\CoPilotVision
+
+
+Deploying to environment: Production
+
+
+Found configuration file:
+  C:\projects\CoPilotVision\staticwebapp.config.json
+
+Deploying project to Azure Static Web Apps...

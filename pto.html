@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TimeTracker - Paid Time Off</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <!-- Add correct Google Fonts import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;700&family=Work+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" data-cachebust />
+    <link rel="stylesheet" href="components.css" data-cachebust />
+    <link rel="stylesheet" href="Nav.css" data-cachebust />
+    <link rel="stylesheet" href="Content.css" data-cachebust />
+    <link rel="stylesheet" href="TimeEntry.css" data-cachebust />
+    <link rel="stylesheet" href="PTO.css" data-cachebust />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <!-- Cache busting is now handled by app.js -->
+  </head>
+  <body>
+    <!-- Skip to main content link for keyboard users -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Mobile menu toggle button -->
+    <button
+      class="mobile-menu-toggle"
+      id="mobile-menu-toggle"
+      aria-label="Toggle navigation menu"
+    >
+      <i class="fas fa-bars" aria-hidden="true"></i>
+    </button>
+
+    <div class="main-container">
+      <!-- Sidebar Navigation -->
+      <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+        <div class="logo-container">
+          <img
+            src="img/TimeTrackerLogo.svg"
+            alt="Time Tracker Logo"
+            class="logo"
+          />
+        </div>
+        <nav class="nav-menu" aria-label="Main navigation">
+          <a href="index.html" class="nav-item" tabindex="0">
+            <i class="nav-icon far fa-clock" aria-hidden="true"></i>
+            <span>Current Timesheet</span>
+          </a>
+          <a href="previous-timesheet.html" class="nav-item" tabindex="0">
+            <i class="nav-icon fas fa-clock-rotate-left" aria-hidden="true"></i>
+            <span>Previous Timesheet</span>
+          </a>
+          <a href="projects.html" class="nav-item" tabindex="0">
+            <i class="nav-icon fa-regular fa-folder" aria-hidden="true"></i>
+            <span>Projects</span>
+          </a>
+          <a
+            href="pto.html"
+            class="nav-item active"
+            aria-current="page"
+            tabindex="0"
+          >
+            <i class="nav-icon fas fa-umbrella-beach" aria-hidden="true"></i>
+            <span>PTO</span>
+          </a>
+        </nav>
+        <div class="user-section">
+          <div class="user-info" aria-label="User information">
+            <p>Signed in as <strong>Rachael Smith</strong></p>
+          </div>
+          <a
+            href="#"
+            class="sign-out"
+            tabindex="0"
+            aria-label="Sign out of your account"
+            >Sign Out</a
+          >
+        </div>
+        <div class="copyright" aria-label="Copyright information">
+          Copyright 2025, Marathon Consulting, LLC
+        </div>
+      </aside>
+      <!-- Main Content Area -->
+      <main id="main-content" class="content-area">
+        <header class="content-header">
+          <h1>PTO</h1>
+        </header>
+
+        <!-- 2025 PTO Year Summary -->
+        <div class="pto-year-summary">
+          <h2>2025 PTO Year Summary</h2>
+          <div class="pto-year-summary-info">
+            <div class="pto-year-summary-current">
+              <p>Current Balance: 86.11</p>
+            </div>
+            <div class="pto-year-summary-details">
+              <div class="pto-year-summary-column">
+                <p>Starting Balance: 112.06</p>
+                <p>Spent: 112.06</p>
+                <p>Accrued: 101.55</p>
+              </div>
+              <div class="pto-year-summary-column">
+                <p>Converted: 2.00</p>
+                <p>Adjusted: 1.00</p>
+                <p>Cashed Out: 7.00</p>
+              </div>
+            </div>
+            <p class="pto-update-notice">
+              PTO Values will be updated between 7/31/2025 - 8/2/2025
+            </p>
+          </div>
+        </div>
+
+        <!-- PTO Balance Calculator -->
+        <div class="pto-calculator">
+          <h2>PTO Balance Calculator</h2>
+          <div class="pto-calculator-container">
+            <div class="pto-calculator-inputs">
+              <div class="calculator-inputs-container">
+                <div class="form-group">
+                  <label for="target-date">Target Date</label>
+                  <div class="date-picker-container">
+                    <input type="date" id="target-date" value="2024-12-31" />
+                    <i class="fas fa-calendar-days"></i>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="pto-to-spend">PTO to Spend</label>
+                  <input type="number" id="pto-to-spend" value="120" />
+                </div>
+                <div class="form-group">
+                  <label for="pto-to-convert">PTO to Convert</label>
+                  <input type="number" id="pto-to-convert" value="0" />
+                </div>
+                <button type="button" class="btn-calculate">Calculate</button>
+              </div>
+            </div>
+            <div class="pto-calculator-results">
+              <div class="calculator-results-container">
+                <p>Current Balance as of 7/27/2022: 86.11</p>
+                <p>Spent as of 12/31/2024: 239.50</p>
+                <p>Accrued from 7/27/2022 - 12/31/2022: 74.47</p>
+                <p class="final-balance">Final PTO Balance: 48.58</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PTO Cash Out -->
+        <div class="pto-cash-out">
+          <h2>PTO Cash Out</h2>
+          <div class="pto-cash-out-container">
+            <div class="pto-cash-out-form">
+              <p>Cutoff Date: 112.06</p>
+              <p>Cash Out Date: 112.06</p>
+              <div class="form-group">
+                <label for="cash-out-hours">Hours</label>
+                <input type="number" id="cash-out-hours" value="0" />
+              </div>
+              <button type="button" class="btn-cash-out">Cash Out</button>
+            </div>
+            <div class="pto-cash-out-rules">
+              <div class="cash-out-rules-container">
+                <p class="rules-title">PTO Cash Out Rules:</p>
+                <p class="rules-details">
+                  The maximum number of hours that can be cashed out in a
+                  payroll year is 40. The maximum number of hours that can be
+                  cashed out in a payroll period is 16. You cannot cash out more
+                  than your current PTO balance. PTO cannot be cashed out during
+                  November, December, or January.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="scripts/app.js" data-cachebust></script>
+  </body>
+</html>

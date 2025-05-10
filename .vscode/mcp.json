@@ -1,0 +1,21 @@
+{
+    "inputs": [{
+        "id": "figma-key",
+        "type": "promptString",
+        "password": true,
+        "description": "Enter your Figma API Key",
+    }],
+    "servers": {
+        "figma": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "figma-developer-mcp",
+                "--stdio"
+            ],
+            "env": {
+                "FIGMA_API_KEY":"${input:figma-key}"
+            }
+        }
+    },
+}

@@ -1,0 +1,442 @@
+/* Time Entry Drawer Component Styles
+ * Using BEM (Block Element Modifier) methodology for better maintainability
+ */
+
+/* Note: We've removed redundant variable definitions.
+ * Using global variables from styles.css instead for consistency.
+ * Added only the overlay variable that's specific to this component
+ */
+:root {
+  --color-overlay: rgba(0, 0, 0, 0.5);
+}
+
+/* Time Entry Drawer Component Styles */
+.time-entry-drawer {
+  display: flex;
+  width: 500px;
+  height: 1080px;
+  padding: 32px 24px;
+  flex-direction: column;
+  justify-content: flex-start; /* Change from space-between to flex-start */
+  align-items: flex-start; /* Change to flex-start to ensure left alignment */
+  flex-shrink: 0;
+  position: fixed;
+  top: 0;
+  right: -500px; /* Hidden by default */
+  background: var(--white);
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  z-index: 1000;
+  transition: right 0.3s ease-in-out;
+  overflow-y: auto;
+}
+
+.time-entry-drawer.open {
+  right: 0;
+}
+
+.time-entry-close {
+  align-self: flex-start; /* Ensure left alignment */
+  color: var(--black);
+  font-family: "Font Awesome 6 Pro";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1; /* Set line-height to 1 to remove any extra space */
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 16px; /* 16px spacer between X and TIME ENTRY */
+  width: 100%; /* Make it full width to control alignment */
+  display: block; /* Ensure it's a block element */
+}
+
+.time-entry-title {
+  color: var(--black);
+  text-align: center;
+  font-family: "Work Sans";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  margin-bottom: 32px; /* 32px spacer between TIME ENTRY and Project */
+}
+
+.time-entry-content {
+  display: flex;
+  width: 452px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-shrink: 0;
+  gap: 24px; /* Adding gap for spacing between children */
+}
+
+/* Remove spacer classes as we're using margins directly */
+/*.time-entry-spacer-small {
+  height: 16px;
+  width: 100%;
+}
+
+.time-entry-spacer-medium {
+  height: 24px;
+  width: 100%;
+}
+
+.time-entry-spacer-large {
+  height: 32px;
+  width: 100%;
+}*/
+
+.time-entry-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.project-title {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.17;
+  color: var(--black);
+  margin: 0;
+  width: 100%; /* Ensure full width stretch */
+  text-align: left; /* Explicitly set alignment to left */
+  align-self: stretch; /* Stretch to full container width */
+  margin-bottom: 16px; /* 16px spacer between Project title and Client info */
+}
+
+.client-info {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  width: 100%; /* Ensure full width stretch */
+  text-align: left; /* Explicitly set alignment to left */
+  align-self: stretch; /* Stretch to full container width */
+  margin-bottom: 16px; /* 16px spacer between Client info and Phase dropdown */
+}
+
+.client-label {
+  /* Using styles from components.css's form-group label */
+  font-family: "Work Sans", sans-serif;
+  font-weight: 700;
+  font-size: var(--font-size-base);
+  color: var(--black);
+  margin: 0;
+}
+
+.client-value {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 400;
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  color: var(--black);
+  margin: 0;
+}
+
+.phase-label,
+.total-estimated,
+.remaining-hours,
+.allow-overage,
+.hours-label,
+.status-report-label {
+  /* Using styles from components.css's form-group label */
+  font-family: "Work Sans", sans-serif;
+  font-weight: 700;
+  font-size: var(--font-size-base);
+  line-height: 1.17;
+  color: var(--black);
+  margin: 0;
+}
+
+.allow-overage {
+  margin-bottom: 32px; /* 32px spacer between Allow overage and tabs */
+}
+
+.phase-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.phase-label {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--black);
+  margin: 0;
+  width: 60px;
+}
+
+.phase-dropdown {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.dropdown-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 8px;
+  border: 1px solid var(--light-gray);
+  background-color: var(--white);
+  width: 100%;
+  height: 40px;
+  cursor: pointer;
+}
+
+.phase-value {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.17;
+  color: var(--black);
+}
+
+.phase-dropdown-icon {
+  font-size: 18px;
+  color: var(--royal-blue);
+}
+
+.day-tabs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+  width: 100%;
+}
+
+.tab-bar {
+  display: flex;
+  width: 100%;
+  margin-top: 0;
+  border-bottom: none;
+  gap: 0;
+}
+
+.day-tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50px;
+  padding: var(--spacing-xl) 12px;
+  gap: 8px;
+  flex: 1 0 0;
+  align-self: stretch;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid var(--royal-blue);
+  background: var(--white);
+  font-family: "Libre Franklin", sans-serif;
+  font-size: 14px;
+  line-height: 1.2;
+  border-radius: 0;
+  margin: 0;
+  text-transform: uppercase;
+  color: var(--royal-blue);
+  font-weight: 400; /* Changed from 600 to 400 for unselected tabs */
+  border-right: none;
+}
+
+.day-tab.active {
+  background-color: var(--royal-blue);
+  color: var(--white);
+  font-weight: 600; /* Keep bold for active tab */
+  border: 2px solid var(--royal-blue);
+  padding: var(--spacing-xl) 8px;
+}
+
+.day-tab:last-child {
+  border-right: 2px solid var(--royal-blue);
+}
+
+.date-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 32px; /* 32px spacer between date and hours */
+}
+
+.current-date {
+  /* Using similar styles from components.css's form labels */
+  font-family: "Work Sans", sans-serif;
+  font-weight: 700;
+  font-size: var(--font-size-base);
+  line-height: 1.17;
+  color: var(--black);
+}
+
+.week-total {
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.17;
+  color: var(--black);
+}
+
+.week-total-label {
+  font-weight: 700;
+}
+
+.week-total-value {
+  font-weight: 400;
+}
+
+.hours-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 50%;
+  margin-bottom: 32px; /* 32px spacer between hours input and status reports label */
+  align-self: flex-start; /* Align to the left edge */
+  text-align: left;
+}
+
+.hours-input-container {
+  position: relative;
+  width: 100%;
+}
+
+.hours-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--light-gray);
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.17;
+  text-align: left; /* Ensure text inside input is left-aligned */
+}
+
+.status-report-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.status-report-textarea {
+  width: 100%;
+  height: 120px;
+  padding: 8px;
+  border: 1px solid var(--light-gray);
+  resize: none;
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.17;
+}
+
+.status-report-note {
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.29;
+  color: var(--black);
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+/* Using button components from components.css */
+.button {
+  min-width: 150px; /* Additional style specific to time entry buttons */
+}
+}
+
+/* Overlay when drawer is open */
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+}
+
+.drawer-overlay.active {
+  display: block;
+}
+
+/* Project Details Section */
+.project-details {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.detail-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label-value-pair {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-bottom: 6px;
+}
+
+.label-value-pair .label {
+  width: 200px;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--black);
+}
+
+.label-value-pair .value {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--black);
+}
+
+.phase-label {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--black);
+  margin-bottom: 8px;
+}
+
+.client-name,
+.hours-label,
+.status-report-label {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--black);
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .time-entry-drawer {
+    width: 100%;
+    right: -100%;
+  }
+}
