@@ -4,6 +4,8 @@
     "time-tracker-vnext": {
       "appLocation": ".",
       "outputLocation": "dist",
+      "appBuildCommand": "npm run build",
+      "appArtifactLocation": "dist",
       "appName": "time-tracker-vnext",
       "resourceGroup": "time-tracker-vnext-rg"
     }

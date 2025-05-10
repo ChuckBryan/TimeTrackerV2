@@ -70,11 +70,25 @@ dirsToInclude.forEach((dir) => {
 function copyDirRecursive(src, dest) {
   const entries = fs.readdirSync(src, { withFileTypes: true });
 
+  // Essential scripts only - explicitly list what we need rather than exclude what we don't
+  const essentialScriptFiles = [
+    "app.js",
+    "main.js",
+    "pto.js",
+    "architecture.js",
+  ];
+
+  // Essential subdirectories in scripts
+  const essentialScriptDirs = ["components", "utils"];
+
+  // If we're in the scripts directory, only copy essential files
+  const isScriptsDir = src.endsWith("scripts");
+
   for (const entry of entries) {
     const srcPath = path.join(src, entry.name);
     const destPath = path.join(dest, entry.name);
 
-    // Files to skip
+    // Files to always skip
     const skipFiles = [
       ".git",
       ".github",
@@ -82,18 +96,23 @@ function copyDirRecursive(src, dest) {
       "node_modules",
       "test",
       "tests",
+      "tools",
     ];
+
     if (skipFiles.includes(entry.name)) {
       continue;
     }
 
-    // Skip test files and other non-production files
+    // Skip test files and non-production files
     if (
       entry.isFile() &&
       (entry.name.endsWith(".test.js") ||
         entry.name.endsWith(".spec.js") ||
         entry.name === "README.md" ||
-        entry.name.endsWith(".md"))
+        entry.name.endsWith(".md") ||
+        entry.name === "build-deploy.js" ||
+        entry.name === "cache-bust.js" ||
+        entry.name === "refactor-css.js")
     ) {
       continue;
     }
@@ -104,9 +123,21 @@ function copyDirRecursive(src, dest) {
         continue;
       }
 
+      // If in scripts directory, only include essential subdirectories
+      if (isScriptsDir && !essentialScriptDirs.includes(entry.name)) {
+        console.log(`Skipping non-essential directory: ${entry.name}`);
+        continue;
+      }
+
       fs.mkdirSync(destPath, { recursive: true });
       copyDirRecursive(srcPath, destPath);
     } else {
+      // If in scripts directory, only include essential files
+      if (isScriptsDir && !essentialScriptFiles.includes(entry.name)) {
+        console.log(`Skipping non-essential script: ${entry.name}`);
+        continue;
+      }
+
       fs.copyFileSync(srcPath, destPath);
     }
   }
